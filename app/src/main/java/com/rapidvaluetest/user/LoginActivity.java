@@ -1,5 +1,6 @@
 package com.rapidvaluetest.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.rapidvaluetest.imagelist.ImageListActivity;
 import com.rapidvaluetest.R;
 import com.rapidvaluetest.databinding.ActivityLoginBinding;
 
@@ -27,11 +29,13 @@ public class LoginActivity extends AppCompatActivity implements LoginResultCallB
 
     @Override
     public void success() {
-        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(LoginActivity.this, ImageListActivity.class));
+        finish();
     }
 
     @Override
-    public void fail() {
-        Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
+    public void fail(String errorMessage) {
+        Toast.makeText(this, "" + errorMessage, Toast.LENGTH_SHORT).show();
     }
 }

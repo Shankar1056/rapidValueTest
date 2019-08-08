@@ -7,9 +7,12 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.rapidvaluetest.imagelist.ImageListActivity;
 import com.rapidvaluetest.user.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
+
+    public static final String LOGINSTATUS = "login_status";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,7 +26,13 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                if (SharedPrefernce.getBoolPreferences(LOGINSTATUS)){
+                    startActivity(new Intent(SplashActivity.this, ImageListActivity.class));
+                    finish();
+                }else {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    finish();
+                }
             }
         }, 2000);
     }

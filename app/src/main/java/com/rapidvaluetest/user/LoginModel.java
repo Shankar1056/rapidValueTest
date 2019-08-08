@@ -2,7 +2,7 @@ package com.rapidvaluetest.user;
 
 import androidx.databinding.BaseObservable;
 
-public class UserModel extends BaseObservable {
+public class LoginModel extends BaseObservable {
 
     public String getEmailId() {
         return emailId;
@@ -22,13 +22,13 @@ public class UserModel extends BaseObservable {
 
     private String emailId, password;
 
-   /* public UserModel(String emailId, String password) {
+   /* public LoginModel(String emailId, String password) {
         this.emailId = emailId;
         this.password = password;
     }*/
 
 
-    public boolean isEmailValid() {
+    /*public boolean isEmailValid() {
         return Utils.isValidEmail1(getEmailId());
     }
 
@@ -36,5 +36,5 @@ public class UserModel extends BaseObservable {
     public boolean isPasswordValid() {
         return getPassword().length() > 5;
     }
-
+*/
 }
